@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registro de Usuário e Ingestão de Água</title>
+  </head>
+  <body>
+    <h1>Registro de Usuário</h1>
+    <form action="/registro-usuario" method="post">
+      <label for="username">Nome de usuário:</label>
+      <input type="text" id="username" name="username" required />
+      <br />
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required />
+      <br />
+      <input type="submit" value="Registrar Usuário" />
+    </form>
+
+    <h1>Registro de Ingestão de Água</h1>
+    <form action="/registro" method="post">
+      <label for="username">Nome de usuário:</label>
+      <input type="text" id="username" name="username" required />
+      <br />
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required />
+      <br />
+      <label for="amount">Quantidade de água (ml):</label>
+      <input type="number" id="amount" name="amount" required />
+      <br />
+      <input type="submit" value="Registrar Ingestão de Água" />
+    </form>
+
+    <h1>Dados do Usuário</h1>
+    <button id="get-data">Obter Dados do Usuário</button>
+    <div id="data"></div>
+
+    <script>
+      document
+        .getElementById("get-data")
+        .addEventListener("click", function () {
+          fetch("/data")
+            .then((response) => response.json())
+            .then((data) => {
+              document.getElementById("data").innerHTML = JSON.stringify(
+                data,
+                null,
+                2
+              );
+            })
+            .catch((error) => {
+              console.error("Erro ao obter dados:", error);
+              document.getElementById("data").innerHTML =
+                "Erro ao obter dados do usuário.";
+            });
+        });
+    </script>
+  </body>
+</html>
