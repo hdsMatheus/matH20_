@@ -2,37 +2,51 @@
 <html>
   <head>
     <title>Registro de Usuário e Ingestão de Água</title>
+    <style>
+      body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .reg, .reg2 {
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Registro de Usuário</h1>
-    <form action="/registro-usuario" method="post">
-      <label for="username">Nome de usuário:</label>
-      <input type="text" id="username" name="username" required />
-      <br />
-      <label for="password">Senha:</label>
-      <input type="password" id="password" name="password" required />
-      <br />
-      <input type="submit" value="Registrar Usuário" />
-    </form>
+    <div class="reg">
+      <h1>Registro de Usuário</h1>
+      <form action="/registro-usuario" method="post">
+        <label for="username">Nome de usuário:</label>
+        <input type="text" id="username" name="username" required />
+        <br />
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name "password" required />
+        <br />
+        <input type="submit" value="Registrar Usuário" />
+      </form>
+    </div>
+    <div class="reg2">
+      <h1>Registro de Ingestão de Água</h1>
+      <form action="/registro" method="post">
+        <label for="username">Nome de usuário:</label>
+        <input type="text" id="username" name="username" required />
+        <br />
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required />
+        <br />
+        <label for="amount">Quantidade de água (ml):</label>
+        <input type="number" id="amount" name="amount" required />
+        <br />
+        <input type="submit" value="Registrar Ingestão de Água" />
+      </form>
 
-    <h1>Registro de Ingestão de Água</h1>
-    <form action="/registro" method="post">
-      <label for="username">Nome de usuário:</label>
-      <input type="text" id="username" name="username" required />
-      <br />
-      <label for="password">Senha:</label>
-      <input type="password" id="password" name="password" required />
-      <br />
-      <label for="amount">Quantidade de água (ml):</label>
-      <input type="number" id="amount" name="amount" required />
-      <br />
-      <input type="submit" value="Registrar Ingestão de Água" />
-    </form>
-
-    <h1>Dados do Usuário</h1>
-    <button id="get-data">Obter Dados do Usuário</button>
-    <div id="data"></div>
-
+      <h1>Dados do Usuário</h1>
+      <button id="get-data">Obter Dados do Usuário</button>
+      <div id="data"></div>
+    </div>
     <script>
       document
         .getElementById("get-data")
@@ -55,3 +69,4 @@
     </script>
   </body>
 </html>
+
